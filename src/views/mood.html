@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/mood/allmood.css">
+    <link rel="stylesheet" href="css/mood/style.css">
+    <link rel="icon" type="image/png" href= "images/insight you.png" />
+    <title>Insight You</title>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            
+            <input id="nav-toggle" type="checkbox">
+            <div class="logo">Insight<strong>You
+                
+                    <!-- <img src="images/logo.png" width="190px"> -->
+                
+            </strong></div>
+            <a href="/" class="header-logo">
+                <!-- <img src="images/logo.png" width="0px"> -->
+            </a>
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/mood">Diary</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/song">Music</a></li>
+                <li><a href="/home#contact">Contact</a></li>
+            </ul>
+            <label for="nav-toggle" class="icon-burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </label>
+        </nav>
+    <div class="container">
+        <h2>2021 Mood Calendar</h2>
+        <h4>TypeCoders</h4>
+        <p>Select mood:</p>
+        <div class="moods_container">
+            <button class="mood mood_1" id="mood_1">
+                <i class="far fa-laugh"></i>
+            </button>
+            <button class="mood mood_2" id="mood_2">
+                <i class="far fa-smile"></i>
+            </button>
+            <button class="mood mood_3" id="mood_3">
+                <i class="far fa-meh"></i>
+            </button>
+            <button class="mood mood_4" id="mood_4">
+                <i class="far fa-frown"></i>
+            </button>
+            <button class="mood mood_5" id="mood_5">
+                <i class="far fa-sad-tear"></i>
+            </button>
+        </div>
+        <p>then click on the circles below</p>
+        <!-- <button id="randomize" class="action_btn randomize">
+            <i class="fas fa-random"></i>
+        </button>
+        <button id="clear" class="action_btn clear">
+            <i class="fas fa-sync"></i>
+        </button> -->
+        <div id="calendar" class="calendar"></div>
+    </div>
+    
+    <script src="javascripts/pages/mood.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Insight You</title>
+    <link rel="icon" type="image/png" href="images/insight you.png" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/quiz/style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+
+            <input id="nav-toggle" type="checkbox">
+            <div class="logo">Insight<strong>You
+
+                    <!-- <img src="images/logo.png" width="190px"> -->
+
+                </strong></div>
+            <a href="index.html" class="header-logo">
+                <!-- <img src="images/logo.png" width="0px"> -->
+            </a>
+            <ul class="links">
+                <li><a href="/Home/index.html">Home</a></li>
+                <li><a href="/MoodCalendar-main/mood.html">Diary</a></li>
+                <li><a href="/Blog/Blog/index.html">Blog</a></li>
+                <li><a href="/Music/index.html">Music</a></li>
+                <li><a href="/Home/index.html">Contact</a></li>
+            </ul>
+            <label for="nav-toggle" class="icon-burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </label>
+        </nav>
+        <div class="quiz-container">
+            <div class="title">Personality Quiz</div>
+            <div id="question" class="question"></div>
+            <label class="option">
+                <input type="radio" name="option" value="1" />
+                <span class="option1"></span>
+            </label>
+            <label class="option">
+                <input type="radio" name="option" value="2" />
+                <span class="option2"></span>
+            </label>
+            <label class="option">
+                <input type="radio" name="option" value="3" />
+                <span class="option3"></span>
+            </label>
+            <label class="option">
+                <input type="radio" name="option" value="4" />
+                <span class="option4"></span>
+            </label>
+            <label class="option">
+                <input type="radio" name="option" value="5" />
+                <span class="option5"></span>
+            </label>
+            <!-- Buttons -->
+            <div class="controls">
+                <button class="previous">Previous</button>
+                <button class="next">Next</button>
+            </div>
+        </div>
+
+        <div class="result">
+
+        </div>
+
+        <script src=javascripts/pages/quiz.js></script>
+        <script src="javascripts/pages/home.js"></script>
+</body>
+
+</html>

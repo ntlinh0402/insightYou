@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+$lightblue: #716DF2;
+$white:#ffffff;
+$darkblue:rgb(34, 2, 109);
+$pink:#ffcccc;
+$green:#BEE5B0;
+$darkgreen:#106e03;
+$brightgreen:#86fc2f;
+
+*{
+    // box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@import "banner";
+@import "header";
+@import "global";
+@import "plusbanner";
+@import "card";
+
+@import "contact";
+
