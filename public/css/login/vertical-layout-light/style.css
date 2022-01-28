@@ -15927,6 +15927,7 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 
 .mt-3, .template-demo > .btn, .ajax-upload-dragdrop .template-demo > .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .template-demo > .swal2-styled, .template-demo > .btn-toolbar {
   margin-top: 1rem !important;
+  text-align: center;
 }
 
 .mt-4 {
@@ -16244,12 +16245,18 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 
 .fw-light {
   font-weight: 300 !important;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 400px;
 }
 
 .fw-lighter {
   font-weight: lighter !important;
+  text-align: center;
 }
-
+.signup-ask{
+  text-align: center;
+}
 .fw-normal {
   font-weight: 400 !important;
 }
@@ -20938,7 +20945,7 @@ code {
   margin-right: .5rem;
 }
 
-.btn.btn-icon-text .btn-icon-append, .ajax-upload-dragdrop .btn-icon-text.ajax-file-upload .btn-icon-append, .swal2-modal .swal2-buttonswrapper .btn-icon-text.swal2-styled .btn-icon-append {
+.btn.btn-icon-text  .btn-icon-append, .ajax-upload-dragdrop .btn-icon-text.ajax-file-upload .btn-icon-append, .swal2-modal .swal2-buttonswrapper .btn-icon-text.swal2-styled .btn-icon-append {
   margin-left: .5rem;
 }
 
@@ -28235,7 +28242,9 @@ div.tagsinput span.tag a {
   background: url("../../images/auth/login-bg.jpg");
   background-size: cover;
 }
-
+.login100-form-btn{
+  text-align: center;
+}
 .auth .register-half-bg {
   background: url("../../images/auth/register-bg.jpg");
   background-size: cover;
@@ -28310,10 +28319,12 @@ div.tagsinput span.tag a {
 
 .auth .brand-logo {
   margin-bottom: 2rem;
+  text-align: center;
+
 }
 
 .auth .brand-logo img {
-  width: 90px;
+  width: 120px;
 }
 
 .auth form .form-group {
