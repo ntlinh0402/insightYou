@@ -1,5 +1,5 @@
 const currentYear = 2021;
-const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat','Sun'];
 const months = [
 	'January',
 	'February',
@@ -75,6 +75,8 @@ months.forEach((month, idx) => {
 							.join('')}
         </div>
         <div class="days_container"></div>
+		<button class ="check">Check</button>
+
     </div>`;
 });
 
