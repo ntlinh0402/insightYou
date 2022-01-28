@@ -16,8 +16,8 @@ $(document).ready(() => {
         if (user) {
             // User is signed in, see docs for a list of available properties
             // https://firebase.google.com/docs/reference/js/firebase.User
-            const uid = user.uid;
-            console.log(uid)
+            setCookie("token", userCredential.user, MINUTES59)
+            window.location.replace('/mood')
             // ...
         } else {
             // User is signed out
@@ -108,7 +108,7 @@ function login(body) {
             signInWithEmailAndPassword(auth, body.email, body.password)
                 .then((userCredential) => {
                     setCookie("token", userCredential.user, MINUTES59)
-                    window.location.replace('/dairy')
+                    window.location.replace('/mood')
                 })
                 .catch(function (error) {
                     // Handle Errors here.
