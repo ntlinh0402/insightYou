@@ -1286,3 +1286,6 @@ h1, h2, h3, h4, h5, h6 {
     -o-transition: border linear 0.2s,box-shadow linear 0.2s;
     transition: border linear 0.2s,box-shadow linear 0.2s;
 }
+.entry-header h2{
+	text-align: center;
+}
