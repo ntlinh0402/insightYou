@@ -106,6 +106,20 @@ const circles = document.querySelectorAll('.circle');
 circles.forEach(circle => {
 	circle.addEventListener('click', () => {
 		circle.style.backgroundColor = activeColor;
+		if(document.getElementById(circle.id).style.backgroundColor != ''){
+			console.log(circle.id)
+			// setDataMoodChecked to Firebase
+			/*
+			setData({
+				document: data
+				collection: currentUser.uid
+				document.set({
+					time: circle.id
+					color: activeColor
+				})
+			})
+			*/
+		}
 	});
 });
 
@@ -129,10 +143,18 @@ function getRandomColor() {
 
 function createDateEl(date) {
 	const day = date.getDate();
+	const month = date.getMonth() + 1;
 	const dateEl = document.createElement('div');
 	dateEl.classList.add('days');
-	dateEl.innerHTML = `<span class="circle">${day}</span>`;
-
+	dateEl.innerHTML = `<span id="${day}-${month}" name="daymood" class="circle">${day}</span>`;
+	/////////////////////////////////////////////////////////////
+	/// Update data Mood Checked
+	// getDataFromFirebase().then({
+		// datas.forEach(data => {
+			// value of data is: {'time': 'day-month', 'color': 'colorOfBackgroundColor'}
+			// document.getElementById(data.time).style.backgroundColor = data.color
+		// })
+	// })
 	return dateEl;
 }
 
