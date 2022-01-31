@@ -46,10 +46,6 @@ $(document).ready(() => {
     }
     $("form :input").keyup(handler)
     $("form :input").change(handler)
-
-    $("#dob").focus(function () {
-        $(this).attr("type", "date")
-    })
 })
 
 function serializeArrToObject(serializeArr) {
@@ -107,7 +103,8 @@ function login(body) {
             Swal.showLoading()
             signInWithEmailAndPassword(auth, body.email, body.password)
                 .then((userCredential) => {
-                    setCookie("token", userCredential.user, MINUTES59)
+                    setCookie("email", userCredential.user.email)
+                    setCookie("token", userCredential.user.accessToken)
                     window.location.replace('/mood')
                 })
                 .catch(function (error) {

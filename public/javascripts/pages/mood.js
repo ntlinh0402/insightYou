@@ -1,5 +1,8 @@
-const currentYear = 2021;
-const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat','Sun'];
+import { setDoc, doc, getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-firestore.js";
+import { getCookie } from "../util/cookie.js";
+const db = getFirestore()
+const currentYear = 2022;
+const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const months = [
 	'January',
 	'February',
@@ -20,8 +23,6 @@ let activeColor = '';
 
 const calendar = document.getElementById('calendar');
 const moods = document.querySelectorAll('.mood');
-const randomize = document.querySelector('#randomize');
-const clear = document.querySelector('#clear');
 
 moods.forEach(mood => {
 	mood.addEventListener('click', () => {
@@ -51,7 +52,7 @@ const getAllDays = year => {
 
 	// Used to keep track of the day
 	let lastDayInArray = firstDay;
-	
+
 	// Loop while there are new days to be added in the current year
 	while (lastDayInArray.getTime() !== lastDay.getTime()) {
 		days.push(addDays(lastDayInArray, 1));
@@ -71,8 +72,8 @@ months.forEach((month, idx) => {
         <h3>${month}</h3>
         <div class="week_days_container">
             ${weekDays
-							.map(day => `<div class="week_days">${day}</div>`)
-							.join('')}
+			.map(day => `<div class="week_days">${day}</div>`)
+			.join('')}
         </div>
         <div class="days_container"></div>
 		<button class ="check">Check</button>
@@ -101,24 +102,26 @@ dates.forEach(date => {
 	monthEl.appendChild(dateEl);
 });
 
+async function setData(circle, activeColor) {
+	let day = circle.id
+	await setDoc(doc(db, getCookie("email"), circle.id), {
+		time: circle.id,
+		color: activeColor
+	});
+}
+
 // Add click event to all the .circles
 const circles = document.querySelectorAll('.circle');
-circles.forEach(circle => {
+circles.forEach(function (circle) {
 	circle.addEventListener('click', () => {
 		circle.style.backgroundColor = activeColor;
-		if(document.getElementById(circle.id).style.backgroundColor != ''){
+		if (document.getElementById(circle.id).style.backgroundColor != '') {
 			console.log(circle.id)
-			// setDataMoodChecked to Firebase
-			/*
-			setData({
-				document: data
-				collection: currentUser.uid
-				document.set({
-					time: circle.id
-					color: activeColor
-				})
-			})
-			*/
+			try {
+				setData(circle, activeColor)
+			} catch (e) {
+				console.error("Error adding document: ", e);
+			}
 		}
 	});
 });
@@ -137,8 +140,11 @@ circles.forEach(circle => {
 // 	});
 // });
 
-function getRandomColor() {
-	return colors[Math.floor(Math.random() * 5)];
+async function SetDataMood() {
+	const querySnapshot = await getDocs(collection(db, getCookie('email')));
+	querySnapshot.forEach((doc) => {
+		document.getElementById(doc.data().time).style.backgroundColor = doc.data().color
+	});
 }
 
 function createDateEl(date) {
@@ -147,14 +153,7 @@ function createDateEl(date) {
 	const dateEl = document.createElement('div');
 	dateEl.classList.add('days');
 	dateEl.innerHTML = `<span id="${day}-${month}" name="daymood" class="circle">${day}</span>`;
-	/////////////////////////////////////////////////////////////
-	/// Update data Mood Checked
-	// getDataFromFirebase().then({
-		// datas.forEach(data => {
-			// value of data is: {'time': 'day-month', 'color': 'colorOfBackgroundColor'}
-			// document.getElementById(data.time).style.backgroundColor = data.color
-		// })
-	// })
+	SetDataMood()
 	return dateEl;
 }
 
