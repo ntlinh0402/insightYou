@@ -30776,5 +30776,29 @@ div.tagsinput span.tag a {
     display: none;
   }
 }
+.input100{
+  font-size: 100px;
+   border: 1px solid #dee2e6;
+   font-weight: 400;
+   font-size: 0.875rem;
+   border-radius: 4px;
+   height: 2rem;
+   box-shadow: none;
+   outline: 0;
+   min-height: 3.175rem;
+   padding: 0.94rem 1.94rem;
+   font-size: 1.25rem;
+   border-radius: 0.3rem;
+   display: block;
+   width: 100%;
+   line-height: 1;
+   color: #808080;
+   background-clip: padding-box;
+   border: 1px solid #dee2e6;
+   font-weight: 400;
+   font-size: 0.875rem;
+   border-radius: 4px;
+   height: 2rem;
+}
 
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */

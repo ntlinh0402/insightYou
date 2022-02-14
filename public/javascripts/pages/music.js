@@ -25,18 +25,19 @@ const app = {
   // (1/2) Uncomment the line below to use localStorage
   // config: JSON.parse(localStorage.getItem(PlAYER_STORAGE_KEY)) || {},
   songs: [
+    
+    {
+      name: "Sound therapy",
+      // singer: "Lee Mujin",
+      path: "/song/sound-therapy.mp3",
+      image:"https://www.theglobeandmail.com/resizer/8dpTmIKLyoLmltzQ4M5KUINJX_Y=/1200x1061/filters:quality(80)/arc-anglerfish-tgam-prod-tgam.s3.amazonaws.com/public/DZJNDG2BZNAC7F7YYEJGZOTBW4"
+        
+    },
     {
       name: "Comptine d`un autre ete - l`apres-midi",
       singer: "Yann Tiersen",
       path: "/song/Comptine.mp3",
       image: "/song/Comptine.jpg"
-    },
-    {
-      name: "Rain and You",
-      singer: "Lee Mujin",
-      path: "/song/Rain and You.mp3",
-      image:"/song/rain and you.jpg"
-        
     },
     {
       name: "River flow in you",

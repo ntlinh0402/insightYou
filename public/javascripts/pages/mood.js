@@ -76,7 +76,6 @@ months.forEach((month, idx) => {
 			.join('')}
         </div>
         <div class="days_container"></div>
-		<button class ="check">Check</button>
 
     </div>`;
 });
