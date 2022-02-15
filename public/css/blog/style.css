@@ -9,6 +9,8 @@ Personal License: Free for personal use
 Commercial License: Buy it here-> https://www.wowthemes.net/marketplace/free-html-template-nectaria/
 Tags:white,light,one-column,two-columns,left-sidebar,right-sidebar,fluid-layout,custom-header,custom-menu,custom-colors,editor-style,featured-image-header,full-width-template,post-formats,theme-options,featured-images,translation-ready
 */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap");
+
 @font-face {
 	font-family:'Genericons';
 	src:url('fonts/genericons-regular-webfont.eot');
