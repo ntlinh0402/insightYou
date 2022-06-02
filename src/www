@@ -15,31 +15,35 @@ const fs = require("fs")
  */
 
 
-var server;
-if(process.env.ENV === "production")
-{
-	var options = 
-	{
-		key   : fs.readFileSync('./src/ssl/privkey.pem'),
-		cert  : fs.readFileSync('./src/ssl/fullchain.pem'), 
-		ca    : fs.readFileSync('./src/ssl/chain.pem')
-	}
+// var server;
+// if(process.env.ENV === "production")
+// {
+// 	var options = 
+// 	{
+// 		key   : fs.readFileSync('./src/ssl/privkey.pem'),
+// 		cert  : fs.readFileSync('./src/ssl/fullchain.pem'), 
+// 		ca    : fs.readFileSync('./src/ssl/chain.pem')
+// 	}
 
-	/**
-	 * Create HTTP server.
-	 */
-	server = https.createServer(options, app).listen("443", function(){
-		console.log("Express server listening on port 443");
-	});
-}
-else
-{
-	const port = normalizePort(process.env.PORT || "3000")
-	app.set("port", port)
-	server = http.createServer(app)
-	server.listen(port)
-}
+// 	/**
+// 	 * Create HTTP server.
+// 	 */
+// 	server = https.createServer(options, app).listen("443", function(){
+// 		console.log("Express server listening on port 443");
+// 	});
+// }
+// else
+// {
+// 	const port = normalizePort(process.env.PORT || "3000")
+// 	app.set("port", port)
+// 	server = http.createServer(app)
+// 	server.listen(port)
+// }
 
+const port = normalizePort(process.env.PORT || "3000")
+app.set("port", port)
+server = http.createServer(app)
+server.listen(port)
 
 /**
  * Listen on provided port, on all network interfaces.
