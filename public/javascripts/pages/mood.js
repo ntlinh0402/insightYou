@@ -97,12 +97,6 @@ months.forEach((month, idx) => {
   const element = document.getElementById("analysisBtn");
 });
 
-document.getElementById("month1").addEventListener("click", function () {
-  let element = this.id;
-  let index = element.split("")[element.length - 1];
-  let data = getMoodFromMonth(index);
-  console.log(data);
-});
 
 // document.getElementsByClassName("dmjs").onclick = function(){
 // 	// let monthElement = this.id;
@@ -183,16 +177,17 @@ circles.forEach(function (circle) {
 // 	});
 // });
 
-function getMoodFromMonth(month) {
+window.getMoodFromMonth = function getMoodFromMonth(month) {
   let dataMood;
   getSnapshot();
-  querySnapshot.forEach((doc) => {
-    if (doc.data().time.toString().slice(-1) == month) {
-      dataMood.add({
-        "doc.data().time.toString().slice(-1)": doc.data().color,
-      });
-    }
-  });
+  dataMood = month;
+  // querySnapshot.forEach((doc) => {
+  //   if (doc.data().time.toString().slice(-1) == month) {
+  //     dataMood.add({
+  //       "doc.data().time.toString().slice(-1)": doc.data().color,
+  //     });
+  //   }
+  // });
   return dataMood;
 }
 
@@ -201,7 +196,7 @@ async function getSnapshot() {
 }
 
 async function SetDataMood() {
-  getSnapshot();
+  const querySnapshot = await getDocs(collection(db, getCookie("email")));
   querySnapshot.forEach((doc) => {
     document.getElementById(doc.data().time).style.backgroundColor =
       doc.data().color;
