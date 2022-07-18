@@ -17,7 +17,7 @@
 
             <input id="nav-toggle" type="checkbox">
             <div class="logo">Insight<strong>You
-                
+
                     <!-- <img src="images/logo.png" width="190px"> -->
 
                 </strong></div>
@@ -39,7 +39,6 @@
         </nav>
         <div class="container">
             <h2>2022 Mood Calendar</h2>
-            <h4>TypeCoders</h4>
             <p>Select mood:</p>
             <div class="moods_container">
                 <button class="mood mood_1" id="mood_1">
@@ -65,15 +64,20 @@
         <button id="clear" class="action_btn clear">
             <i class="fas fa-sync"></i>
         </button> -->
+
             <div id="calendar" class="calendar"></div>
+            <canvas id="chart-line" width="299" height="200" class="chartjs-render-monitor"
+                style="display: block; width: 299px; height: 200px;"></canvas>
+
         </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script type="module">
             // Import the functions you need from the SDKs you need
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js";
             import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-analytics.js";
             // TODO: Add SDKs for Firebase products that you want to use
             // https://firebase.google.com/docs/web/setup#available-libraries
-    
             // Your web app's Firebase configuration
             // For Firebase JS SDK v7.20.0 and later, measurementId is optional
             const firebaseConfig = {
@@ -85,13 +89,11 @@
                 appId: "1:534795232708:web:43d594294d25d339c4b091",
                 measurementId: "G-9R22PLM733"
             };
-    
             // Initialize Firebase
             const app = initializeApp(firebaseConfig);
             const analytics = getAnalytics(app);
         </script>
-    
-        <script type="module" src="javascripts/pages/mood.js"></script>
+            <script type="module" src="javascripts/pages/mood.js"></script>
 </body>
 
 </html>
