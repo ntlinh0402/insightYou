@@ -97,30 +97,6 @@ months.forEach((month, idx) => {
   const element = document.getElementById("analysisBtn");
 });
 
-
-// document.getElementsByClassName("dmjs").onclick = function(){
-// 	// let monthElement = this.id;
-// 	// console.log(monthElement);
-// 	console.log('sadoa');
-// 	var ctx = document.getElementById("chart-line");
-// 	var myLineChart = new Chart(ctx, {
-// 		type: 'doughnut',
-// 		data: {
-// 			labels: months,
-// 			datasets: [{
-// 				data: [1200, 1700, 800, 200, 200],
-// 				backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)", "rgba(200, 50, 255, 0.5)", "rgba(0, 100, 255, 0.5)"]
-// 			}]
-// 		},
-// 		options: {
-// 			title: {
-// 				display: true,
-// 				text: 'Weather'
-// 			}
-// 		}
-// 	});
-// }
-// Loop over each day and
 dates.forEach((date) => {
   const month = date.getMonth();
   const monthEl = document.querySelector(`.month_${month} .days_container`);
@@ -163,37 +139,55 @@ circles.forEach(function (circle) {
   });
 });
 
-// Randomize functionality
-// randomize.addEventListener('click', () => {
-// 	circles.forEach(circle => {
-// 		circle.style.backgroundColor = getRandomColor();
-// 	});
-// });
+window.getMoodFromMonth = async function getMoodFromMonth(month) {
+  let dataMood = {
+    "rgb(45, 107, 95)": 0,
+    "rgb(114, 227, 166)": 0,
+    "rgb(223, 244, 199)": 0,
+    "rgb(237, 191, 152)": 0,
+    "rgb(234, 61, 54)": 0,
+  };
+  const querySnapshot = await getDocs(collection(db, getCookie("email")));
+  querySnapshot.forEach((doc) => {
+    if (doc.data().time.toString().slice(-1) == month) {
+      dataMood[doc.data().color.toString()]++;
+    }
+  });
 
-// Clear functionality
-// clear.addEventListener('click', () => {
-// 	circles.forEach(circle => {
-// 		circle.style.backgroundColor = defaultColor;
-// 	});
-// });
+  var ctx = document.getElementById("chart-line");
+  var myLineChart = new Chart(ctx, {
+    type: "doughnut",
+    data: {
+      labels: react,
+      datasets: [
+        {
+          data: [
+            dataMood["rgb(45, 107, 95)"],
+            dataMood["rgb(114, 227, 166)"],
+            dataMood["rgb(223, 244, 199)"],
+            dataMood["rgb(237, 191, 152)"],
+            dataMood["rgb(234, 61, 54)"],
+          ],
+          backgroundColor: [
+            "rgba(45, 107, 95, 0.5)",
+            "rgba(114, 227, 166, 0.5)",
+            "rgba(223, 244, 199, 0.5)",
+            "rgba(237, 191, 152, 0.5)",
+            "rgba(234, 61, 54, 0.5)",
+          ],
+        },
+      ],
+    },
+    options: {
+      title: {
+        display: true,
+        text: "Weather",
+      },
+    },
+  });
 
-window.getMoodFromMonth = function getMoodFromMonth(month) {
-  let dataMood;
-  getSnapshot();
-  dataMood = month;
-  // querySnapshot.forEach((doc) => {
-  //   if (doc.data().time.toString().slice(-1) == month) {
-  //     dataMood.add({
-  //       "doc.data().time.toString().slice(-1)": doc.data().color,
-  //     });
-  //   }
-  // });
   return dataMood;
-}
-
-async function getSnapshot() {
-  querySnapshot = await getDocs(collection(db, getCookie("email")));
-}
+};
 
 async function SetDataMood() {
   const querySnapshot = await getDocs(collection(db, getCookie("email")));
