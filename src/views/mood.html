@@ -66,10 +66,18 @@
         </button> -->
 
             <div id="calendar" class="calendar"></div>
-            <canvas id="chart-line" width="299" height="200" class="chartjs-render-monitor"
-                style="display: block; width: 299px; height: 200px;"></canvas>
 
         </div>
+
+        <!-- popup code -->
+        <div id="xmas-popup" class="popup" href="#">
+            <div class="popup-content">
+                <a href="/mood" class="close">x</a>
+                <canvas id="chart-line"  class="chartjs-render-monitor"
+                    style="display: block;"></canvas>
+            </div>
+        </div>
+
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script type="module">
@@ -93,8 +101,8 @@
             const app = initializeApp(firebaseConfig);
             const analytics = getAnalytics(app);
         </script>
-            <script type="module" src="javascripts/pages/mood.js"></script>
-            <script type="module" src="javascripts/pages/catch-state-onclick.js"></script>
+        <script type="module" src="javascripts/pages/mood.js"></script>
+        <script type="module" src="javascripts/pages/catch-state-onclick.js"></script>
 </body>
 
 </html>

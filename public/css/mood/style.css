@@ -1,4 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap");
+
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+ }
+ 
+ #xmas-popup .popup-content{
+  width: 600px;
+  height: 600px;
+  background: #bbb;
+  margin: 100px auto;
+  position: relative;
+  border: 5px solid #fff;
+ }
+ 
+ .close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 50%;
+  background: #222;
+  border: 3px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  line-height: 0;
+  padding: 9px 0 11px;
+  width: 20px;
+  text-align: center;
+ }
+   
+ .popup:target {
+   display: block;
+ }
+
 * {
   margin: 0;
   padding: 0;

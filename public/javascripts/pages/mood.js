@@ -154,6 +154,8 @@ window.getMoodFromMonth = async function getMoodFromMonth(month) {
     }
   });
 
+  document.getElementById('xmas-popup').setAttribute('style', 'display:block');
+
   var ctx = document.getElementById("chart-line");
   var myLineChart = new Chart(ctx, {
     type: "doughnut",
