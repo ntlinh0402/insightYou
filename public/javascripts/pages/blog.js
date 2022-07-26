@@ -16,11 +16,11 @@ querySnapshot.forEach((doc) => {
       <article class="hentry">
             <header class="entry-header">
                 <div class="entry-thumbnail">
-                    <a href="/blog-item">
+                    <a href="/blog-item#${doc.data().index}">
                     <img src="${doc.data().image}" alt="p1" />
                     </a>
                 </div>
-                <h2 class="entry-title"><a href="/blog-item" rel="bookmark">${
+                <h2 class="entry-title"><a href="/blog-item#${doc.data().index}" rel="bookmark">${
                   doc.data().title
                 }</a></h2>
             </header>
