@@ -18,6 +18,7 @@ module.exports = {
     "GET /quiz": { action: "view-quiz" },
     "GET /quotes": { action: "view-quotes" },
     "GET /song": { action: "view-song" },
+    "GET /resetpwd": {action: "view-resetpwd"},
 
     //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
     //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗
