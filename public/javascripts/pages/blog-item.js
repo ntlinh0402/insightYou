@@ -18,10 +18,12 @@ let sub_title = document.getElementById('subTitleElement');
 let description = document.getElementById('descriptionElement');
 let qoutes = document.getElementById('qoutesElement');
 let image = document.getElementById('imagePostElement');
+let selfReflection = document.getElementById('selfReflectionElement');
 querySnapshot.forEach((doc) => {
     title.innerHTML = doc.data().title
     sub_title.innerHTML = doc.data().sub_title
     description.innerHTML = doc.data().description
     qoutes.innerHTML = doc.data().qoutes
     image.src = doc.data().image
+    selfReflection.innerHTML = doc.data().self_reflection
 });
