@@ -1,0 +1,28 @@
+name: HOST_PRODUCTION
+
+on:
+  push:
+
+
+
+jobs:      
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Login to docker registry
+      run : |
+        docker login -u thinkmay -p thinkmayvantue workstation.thinkmay.net
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: build source image
+      run : |
+        docker build . -t workstation.thinkmay.net/insightyouhelp:latest
+        docker push workstation.thinkmay.net/insightyouhelp:latest
+  CD:    
+    runs-on: ubuntu-latest
+    needs: [ "build" ]
+    steps:
+    - name: update via kubectl 
+      run : |
+        docker login -u thinkmay -p thinkmayvantue workstation.thinkmay.net
+        docker run workstation.thinkmay.net/kubectl -n linh rollout restart deployment frontend
